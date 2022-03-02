@@ -20,7 +20,7 @@ class RegisterForm extends Component {
                 }}>
                     <div className="form-holder">
                         <div className="form-content">
-                            <div className="form-items">z
+                            <div className="form-items">
                                 <h3>Register Form</h3>
                                 <p>Fill in the data below.</p>
                                 <form className="requires-validation" noValidate>
@@ -114,8 +114,8 @@ const mapStateToProps = () => {
 const mapDispatchToProps = (dispatch) => {
     return {
         onAddNewUser: (newUser) => {
-            let aciton = add_user_action(newUser);
-            dispatch(aciton)
+            let action = add_user_action(newUser);
+            dispatch(action)
         }
     }
 }

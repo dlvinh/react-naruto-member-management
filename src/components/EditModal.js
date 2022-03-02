@@ -1,73 +1,85 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { update_user_action } from '../Redux/ReduxActionsList/reudxActions'
+import { update_user } from '../Redux/ReduxActionType/reduxActionTypeList'
 
 class EditModal extends Component {
+
+    state = {
+        userState: {
+
+        }
+    }
+
+
     render() {
-        console.log(this.props.user)
+        console.log(this.state.userState)
         return (
+
             <React.Fragment>
                 <div>
                     <div className="modal fade" id="editUser" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                                    <h5 className="modal-title" id="exampleModalLabel">Editing</h5>
                                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                 </div>
                                 <div className="modal-body">
                                     <div className="form-holder">
-                                        <div className="form-content">
+                                        <div className="">
                                             <div className="form-items">
-                                                <h3>Register Form</h3>
-                                                <p>Fill in the data below.</p>
                                                 <form className="requires-validation" noValidate>
                                                     <div className="col-md-12">
-                                                        <input className="form-control" type="text" name="userName" placeholder="Username" required onChange={(e) => {
+                                                        <input className="form-control" type="text" name="userName" placeholder="Username" value={this.state.userState.userName} required onChange={(e) => {
                                                             this.setState({
                                                                 ...this.state,
-                                                                userName: e.target.value
+                                                                userState: { ...this.state.userState, userName: e.target.value }
+
+                                                            }, () => {
+                                                                console.log("after changename", this.state);
                                                             })
                                                         }} />
                                                         <div className="valid-feedback">Username field is valid!</div>
                                                         <div className="invalid-feedback">Username field cannot be blank!</div>
                                                     </div>
                                                     <div className="col-md-12">
-                                                        <input className="form-control" type="email" name="email" placeholder="E-mail Address" required onChange={(e) => {
+                                                        <input className="form-control" type="email" name="email" placeholder="E-mail Address" value={this.state.userState.email} required onChange={(e) => {
                                                             this.setState({
                                                                 ...this.state,
-                                                                email: e.target.value
+                                                                userState: { ...this.state.userState, email: e.target.value }
                                                             })
                                                         }} />
                                                         <div className="valid-feedback">Email field is valid!</div>
                                                         <div className="invalid-feedback">Email field cannot be blank!</div>
                                                     </div>
                                                     <div className="col-md-12">
-                                                        <input className="form-control" type="password" name="password" placeholder="Password" required onChange={(e) => {
+                                                        <input className="form-control" type="password" name="password" placeholder="Password" value={this.state.userState.password} required onChange={(e) => {
                                                             this.setState({
                                                                 ...this.state,
-                                                                password: e.target.value
+                                                                userState: { ...this.state.userState, password: e.target.value }
                                                             })
                                                         }} />
                                                         <div className="valid-feedback">Password field is valid!</div>
                                                         <div className="invalid-feedback">Password field cannot be blank!</div>
                                                     </div>
                                                     <div className="col-md-12">
-                                                        <input className="form-control" type="text" name="fullName" placeholder="Full Name" required onChange={(e) => {
+                                                        <input className="form-control" type="text" name="fullName" placeholder="Full Name" value={this.state.userState.fullName} required onChange={(e) => {
                                                             this.setState({
-                                                                ...this.setState,
-                                                                fullName: e.target.value
+                                                                ...this.state,
+                                                                userState: { ...this.state.userState, fullName: e.target.value }
                                                             })
                                                         }} />
                                                         <div className="valid-feedback">Full name field is valid!</div>
                                                         <div className="invalid-feedback">Full name field cannot be blank!</div>
                                                     </div>
                                                     <div className="col-md-12">
-                                                        <input className="form-control" type="text" name="phoneNo" placeholder="Phone Number" required onChange={(e) => {
+                                                        <input className="form-control" type="text" name="phoneNo" placeholder="Phone Number" value={this.state.userState.phoneNo} required onChange={(e) => {
                                                             this.setState({
-                                                                ...this.setState,
-                                                                phoneNo: e.target.value
+                                                                ...this.state,
+                                                                userState: { ...this.state.userState, phoneNo: e.target.value }
                                                             })
                                                         }} />
                                                         <div className="valid-feedback">Full name field is valid!</div>
@@ -75,10 +87,10 @@ class EditModal extends Component {
                                                     </div>
 
                                                     <div className="col-md-12">
-                                                        <select className="form-select mt-3" required onChange={(e) => {
+                                                        <select className="form-select mt-3" value={this.state.userState.role} required onChange={(e) => {
                                                             this.setState({
-                                                                ...this.setState,
-                                                                role: e.target.value
+                                                                ...this.state,
+                                                                userState: { ...this.state.userState, role: e.target.value }
                                                             })
                                                         }}>
                                                             <option selected disabled >Position</option>
@@ -92,17 +104,15 @@ class EditModal extends Component {
                                                         <div className="invalid-feedback">Please select a position!</div>
                                                     </div>
                                                     <div></div>
-                                                    <div className="form-button mt-3">
-                                                        <button id="submit" type="submit" className="btn btn-primary">Register</button>
-                                                    </div>
+
                                                 </form>
+                                                <div className="modal-footer form-button mt-3">
+                                                    <button id="submit" className="btn btn-primary"  data-dismiss="modal" onClick={this.props.onUpdateUser.bind(this,this.state.userState)}>Save Change</button>
+                                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" className="btn btn-primary">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -111,13 +121,34 @@ class EditModal extends Component {
             </React.Fragment>
         )
     }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        console.log({ prevProps, prevState })
+        if (this.props.user.id !== prevState.userState.id) {
+            console.log("propsUser", this.props.user)
+            this.setState({
+                userState: this.props.user
+            }, () => {
+                console.log("update")
+            })
+
+        }
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
         user: state.appStateReducer.editUser,
     }
-
 }
 
-export default connect(mapStateToProps)(EditModal);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onUpdateUser: (newUpdate) => {
+            let action = update_user_action(newUpdate);
+            dispatch(action);
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(EditModal);

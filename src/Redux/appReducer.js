@@ -1,11 +1,11 @@
-import { add_user, delete_user, edit_user } from "./ReduxActionType/reduxActionTypeList";
+import { add_user, delete_user, edit_user, update_user } from "./ReduxActionType/reduxActionTypeList";
 
 const userState = {
     userList:[
         {
             id: 1,
             userName: "NarutoTheHokage",
-            fullName: "	Uzumaki Naruto",
+            fullName: "Uzumaki Naruto",
             password: "12345678",
             email: "naruto@gmail.com",
             phoneNo: "123456789",
@@ -21,9 +21,7 @@ const userState = {
             role: "Jonin"
         }
     ],
-    editUser:{
-
-    }
+    editUser:{    }
     
 }
     
@@ -43,6 +41,15 @@ const appStateReducer = (state= userState, action)=>{
         case edit_user:{
             let user = state.userList.find(user => user.id == action.obj.id);
             return {...state, editUser: user};
+        }
+        case update_user:{
+            console.log("update",action.obj)
+            let newList = [...state.userList];
+            let newUser = action.obj
+            let index = state.userList.findIndex(user => user.id == action.obj.id);
+            newList[index] = newUser;
+            console.log(newList)
+            return {...state,userList: newList};
         }
         case delete_user:{
             let newUserList = [...state.userList];
