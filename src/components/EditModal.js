@@ -7,11 +7,8 @@ class EditModal extends Component {
 
     state = {
         userState: {
-
         }
     }
-
-
     render() {
         console.log(this.state.userState)
         return (
