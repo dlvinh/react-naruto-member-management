@@ -43,12 +43,12 @@ const appStateReducer = (state= userState, action)=>{
             return {...state, editUser: user};
         }
         case update_user:{
-            console.log("update",action.obj)
+           // console.log("update",action.obj)
             let newList = [...state.userList];
             let newUser = action.obj
             let index = state.userList.findIndex(user => user.id == action.obj.id);
             newList[index] = newUser;
-            console.log(newList)
+          //  console.log(newList)
             return {...state,userList: newList};
         }
         case delete_user:{

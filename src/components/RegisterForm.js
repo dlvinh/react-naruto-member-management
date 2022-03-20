@@ -58,7 +58,7 @@ class RegisterForm extends Component {
             error: newError,
             user: newValue
         }, () => {
-            console.log(this.state)
+            //console.log(this.state)
         })
         /**
          * Ta co the viet theo kieu nay nhung this.setState se repeat nhieu lan
@@ -105,7 +105,7 @@ class RegisterForm extends Component {
                             valid = false;
                         }
                     }
-                    console.log("newSubmitHandler", valid);
+                   // console.log("newSubmitHandler", valid);
                     if (valid === false) {
                         Swal.fire({
                             title: 'Invalid!',

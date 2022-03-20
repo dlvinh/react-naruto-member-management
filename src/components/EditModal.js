@@ -10,7 +10,7 @@ class EditModal extends Component {
         }
     }
     render() {
-        console.log(this.state.userState)
+       // console.log(this.state.userState)
         return (
 
             <React.Fragment>
@@ -36,7 +36,7 @@ class EditModal extends Component {
                                                                 userState: { ...this.state.userState, userName: e.target.value }
 
                                                             }, () => {
-                                                                console.log("after changename", this.state);
+                                                             //   console.log("after changename", this.state);
                                                             })
                                                         }} />
                                                         <div className="valid-feedback">Username field is valid!</div>
@@ -120,13 +120,13 @@ class EditModal extends Component {
     }
 
     componentDidUpdate = (prevProps, prevState) => {
-        console.log({ prevProps, prevState })
+        //console.log({ prevProps, prevState })
         if (this.props.user.id !== prevState.userState.id) {
-            console.log("propsUser", this.props.user)
+           // console.log("propsUser", this.props.user)
             this.setState({
                 userState: this.props.user
             }, () => {
-                console.log("update")
+               // console.log("update")
             })
 
         }

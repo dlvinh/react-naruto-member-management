@@ -22,7 +22,7 @@ class EmployeeTable extends Component {
         })
     }
     render() {
-        console.log(this.props.userList)
+       // console.log(this.props.userList)
         return (
             <React.Fragment>
                 <div className="container-fluid pb-4">
