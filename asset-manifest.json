@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/react-naruto-member-management/static/css/main.badc9000.css",
+    "main.js": "/react-naruto-member-management/static/js/main.de76829f.js",
+    "static/js/787.28cb0dcd.chunk.js": "/react-naruto-member-management/static/js/787.28cb0dcd.chunk.js",
+    "static/media/logo.svg": "/react-naruto-member-management/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/react-naruto-member-management/index.html",
+    "main.badc9000.css.map": "/react-naruto-member-management/static/css/main.badc9000.css.map",
+    "main.de76829f.js.map": "/react-naruto-member-management/static/js/main.de76829f.js.map",
+    "787.28cb0dcd.chunk.js.map": "/react-naruto-member-management/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.badc9000.css",
+    "static/js/main.de76829f.js"
+  ]
+}
